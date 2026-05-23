@@ -6,7 +6,7 @@
 
 <link rel="icon" href="img/7.jpeg" type="image/png">
 
-<title>The Wedding Of Wellem & Marlin</title>
+<title>The Wedding Of Maurits & Asmy</title>
 
 <!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -250,7 +250,7 @@ p, h1, h2 {
 }
 
 .hero-text{
-    margin-top:35px;
+    margin-top:20px;
     font-size:16px;
     line-height:1.8;
     opacity:.9;
@@ -298,6 +298,79 @@ p, h1, h2 {
     pointer-events:none;
 }
 
+/* KHUSUS GROOM SECTION SAJA */
+.groom-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:url("img/6.jpeg") center/cover no-repeat;
+    filter:blur(12px);
+    transform:scale(1.1);
+
+    z-index:0;
+}
+
+/* overlay gelap */
+.groom-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:0;
+}
+
+/* KHUSUS BRIDE SECTION */
+.bride-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:url("img/6.jpeg") center/cover no-repeat;
+
+    filter:blur(12px);
+    transform:scale(1.1);
+
+    z-index:0;
+}
+
+/* overlay */
+.bride-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:0;
+}
+
+/* KHUSUS BRIDE SECTION */
+.gift-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:url("img/6.jpeg") center/cover no-repeat;
+
+    filter:blur(12px);
+    transform:scale(1.1);
+
+    z-index:0;
+}
+
+/* overlay */
+.gift-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:0;
+}
+
+
 #about .card{
     width:100%;
     max-width:1000px;
@@ -315,6 +388,12 @@ p, h1, h2 {
 }
 
 #gallery{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#address{
     display:flex;
     justify-content:center;
     align-items:center;
@@ -1279,6 +1358,144 @@ body{
     }
 }
 
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    margin-top:35px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.time-box{
+    width:90px;
+    height:90px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+
+    animation:floatBox 3s ease-in-out infinite;
+}
+
+.time-box span{
+    font-size:28px;
+    font-weight:bold;
+    color:#ffd27a;
+}
+
+.time-box small{
+    margin-top:5px;
+    font-size:12px;
+    letter-spacing:1px;
+    color:white;
+}
+
+/* FLOAT EFFECT */
+@keyframes floatBox{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .time-box{
+        width:55px;
+        height:55px;
+    }
+
+    .time-box span{
+        font-size:22px;
+    }
+
+}
+
+.groom{
+    margin-top:clamp(10px, 3vh, 40px);
+}
+
+/* =========================
+   ADDRESS / MAP SECTION
+========================= */
+
+#address .card{
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* container map biar elegan */
+.map-container{
+    width: 100%;
+    margin-top: 25px;
+
+    border-radius: 25px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+
+    transform: translateY(0);
+    transition: .4s ease;
+}
+
+/* hover effect biar hidup */
+.map-container:hover{
+    transform: scale(1.01);
+}
+
+/* iframe/object maps */
+.map-container object,
+.map-container iframe{
+    width: 100%;
+    height: 450px;
+    border: 0;
+    display: block;
+}
+
+/* judul lebih elegan */
+#address h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* responsive hp */
+@media(max-width:768px){
+    .map-container object,
+    .map-container iframe{
+        height: 320px;
+    }
+
+    #address h2{
+        font-size: 36px;
+    }
+}
+
 </style>
 
 </head>
@@ -1313,9 +1530,9 @@ body{
                 Bapak/Ibu/Saudara/i
             </div>
         </div>
-        <h6 class="subtitle" id="nama_undangan">
+        <h2 class="subtitle" id="nama_undangan">
             Tamu Undangan
-        </h6>
+        </h2>
         <button class="open-btn" id="openInvitation">
             BUKA UNDANGAN
         </button>
@@ -1368,16 +1585,44 @@ body{
                 WE ARE GETTING MARRIED
             </div>
 
-            <h1 class="hero-title">
+            <h2 class="hero-title">
                 Maurits
-            </h1>
+            </h2>
             <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; color: beige;">&</div>
-            <h1 class="hero-title">Asmy</h1>
+            <h2 class="hero-title">Asmy</h2>
 
             <div class="hero-date" style="color: aliceblue;">
-                20 DESEMBER 2026
+                26 Juni 2026
             </div>
 
+<!-- COUNTDOWN -->
+<div class="countdown">
+
+    <div class="time-box">
+        <span id="days">00</span>
+        <small>Hari</small>
+    </div>
+
+    <div class="time-box">
+        <span id="hours">00</span>
+        <small>Jam</small>
+    </div>
+
+    <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Menit</small>
+    </div>
+
+    <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Detik</small>
+    </div>
+
+</div>
+
+            <h2 id="nama_undangan_hero" style="margin-top: 10px;">
+                Tamu Undangan
+            </h2>
             <p class="hero-text" style="color: aliceblue;">
                 Dengan penuh sukacita kami mengundang Bapak/Ibu/Saudara/i
                 untuk hadir dalam acara pernikahan kami.
@@ -1394,6 +1639,57 @@ body{
         </p>
     </div>
     </section>
+<section id="groom" class="section groom-section"
+    style="align-items:flex-start; padding-top:20px;">
+
+    <form action="" class="rsvp-form">
+
+        <div class="card rsvp-card"
+            style="z-index:1000;">
+
+            <img src="img/groom.png" alt=""
+                width="300rem"
+                style="margin-top:-100px; transform:translateY(-15px);">
+
+            <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                Maurits A. Selan, S.Pd., M.Pd.K
+            </h2>
+
+            <p>
+                Anak ke 7 dari 9 bersaudara pasangan Gabriel Selan & Bendelina Oktoriana Selan-Manu (Almh)
+            </p>
+
+        </div>
+
+    </form>
+
+</section>
+<section id="bride" class="section bride-section"
+    style="align-items:flex-start; padding-top:20px;">
+
+    <form action="" class="rsvp-form"
+        style="width:100%; display:flex; justify-content:flex-end;">
+
+        <div class="card rsvp-card"
+            style="z-index:1000; margin-right:2vw;">
+
+            <img src="img/bride.png" alt=""
+                width="300rem"
+                style="margin-top:-100px; transform:translateY(-15px);">
+
+            <h2 style="font-family:'Trebuchet MS', Arial;">
+                Asmy ...
+            </h2>
+
+            <p>
+                Anak ke ... dari pasangan ...
+            </p>
+
+        </div>
+
+    </form>
+
+</section>
 <section id="gallery" class="section">
 <div class="card">
     <h2>Gallery</h2>
@@ -1408,7 +1704,28 @@ body{
 
 </div>
 </section>
+<section id="address" class="section gift-section">
+<div style="z-index: 20;">
+    <h2>Address</h2>
 
+
+    <div class="map-container">
+      <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1351.8773951875835!2d124.48225686634244!3d-9.445125490927795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMjYnNDEuMSJTIDEyNMKwMjknMDAuNCJF!5e0!3m2!1sid!2sid!4v1779529721953!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<div style="text-align: center;">
+<a href="https://www.google.com/maps?q=-9.444762276083582,124.48344705522405"
+   target="_blank"
+   class="map-btn" style="color: #fff;">
+   📍 Buka Lokasi Acara (Klik disini!)
+</a>
+</div>
+    </div>
+
+
+</div>
+</section>
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -1462,14 +1779,40 @@ body{
         </p>
     </div>
     </section>
-    <section id="gift" class="section">
-    <div class="card">
+    <section id="gift" class="section gift-section" style="justify-content:center; align-items:center;">
+    <div class="card" style="z-index: 20; margin:auto;text-align:center;">
         <h2>Wedding Gift</h2>
+        <img src="img/card.png" alt="" width="400rem">
         <p>
             Bank BRI: 1234567890<br>
             a.n Maurits <br><br>
-            Terima kasih atas doa dan perhatian Anda 💖
         </p>
+    </div>
+    </section>
+
+    <section id="thanks" class="section gift-section" style="justify-content:center; align-items:center;">
+    <div class="card" style="z-index: 20; margin:auto;text-align:center;">
+        <h2 style="margin-bottom: 10px;">Thanks</h2>
+        <div class="card rsvp-card"
+            style="z-index:1000; margin-right:2vw;">
+
+            <img src="img/thanks.png" alt=""
+                width="300rem">
+
+            <h2 style="font-family:'Trebuchet MS', Arial; font-size:medium;">
+                Terima kasih atas doa dan perhatian Anda 
+            </h2>
+            <br>
+            <br>
+            <p>
+                🎵 Raisa & Barsena Bestandhi - Awal Kisah Selamanya
+            </p>
+            <br>
+            <br>
+
+            <small style="color: #fff;">Maurits 💖 Asmy</small>
+
+        </div>
     </div>
     </section>
 </main>
@@ -1479,10 +1822,14 @@ body{
     <div class="nav-track">
         <a href="#home" class="nav-item active"><i class="fa-solid fa-house"></i><span>Home</span></a>
         <a href="#about" class="nav-item"><i class="fa-solid fa-heart"></i><span>About</span></a>
+        <a href="#groom" class="nav-item"><i class="fa-solid fa-user-tie"></i><span>The Groom</span></a>
+        <a href="#bride" class="nav-item"><i class="fa-solid fa-user-injured"></i><span>The Bride</span></a>
         <a href="#gallery" class="nav-item"><i class="fa-solid fa-image"></i><span>Gallery</span></a>
+        <a href="#address" class="nav-item"><i class="fa-solid fa-location"></i><span>Address</span></a>
         <a href="#rsvp" class="nav-item"><i class="fa-solid fa-envelope"></i><span>RSVP</span></a>
         <a href="#contact" class="nav-item"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
         <a href="#gift" class="nav-item"><i class="fa-solid fa-gift"></i><span>Gift</span></a>
+        <a href="#thanks" class="nav-item"><i class="fa-solid fa-handshake-angle"></i><span>Thanks</span></a>
 
         <!-- kalau mau tambah menu tinggal tambah di sini -->
 
@@ -1559,11 +1906,9 @@ btn.addEventListener("click", async () => {
 // =========================
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDri3jF59vgfmGrFE6Sz1VqMsH3lBKbEfc",
   authDomain: "wedding-maurits-asmy.firebaseapp.com",
-  databaseURL: "https://wedding-maurits-asmy-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "wedding-maurits-asmy",
   storageBucket: "wedding-maurits-asmy.firebasestorage.app",
   messagingSenderId: "955537385416",
@@ -2005,17 +2350,95 @@ form.addEventListener("submit", function(e){
 </script>
 
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-const nama = urlParams.get("to");
 
-const target = document.getElementById("nama_undangan");
+/* =========================
+   COUNTDOWN TIMER
+========================= */
 
-if (nama) {
-    target.textContent = decodeURIComponent(nama);
-} else {
-    target.textContent = "Tamu Undangan";
-}
+const weddingDate = new Date("Jun 26, 2026 19:00:00").getTime();
+
+const countdown = setInterval(() => {
+
+    const now = new Date().getTime();
+
+    const distance = weddingDate - now;
+
+    // waktu
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    // tampilkan
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    // selesai
+    if(distance < 0){
+
+        clearInterval(countdown);
+
+        document.querySelector(".countdown").innerHTML = `
+            <div style="
+                color:white;
+                font-size:25px;
+                letter-spacing:3px;
+            ">
+                💖 ACARA TELAH DIMULAI 💖
+            </div>
+        `;
+    }
+
+}, 1000);
+
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ambil nama dari URL
+    const params = new URLSearchParams(window.location.search);
+    const nama = params.get("to");
+
+    // element cover
+    const coverNama = document.getElementById("nama_undangan");
+
+    // element hero
+    const heroNama = document.getElementById("nama_undangan_hero");
+
+    // default
+    let hasil = "Tamu Undangan";
+
+    // kalau ada nama
+    if (nama && nama.trim() !== "") {
+        hasil = decodeURIComponent(nama);
+    }
+
+    // tampilkan ke cover
+    if (coverNama) {
+        coverNama.textContent = hasil;
+    }
+
+    // tampilkan ke hero
+    if (heroNama) {
+        heroNama.textContent = hasil;
+    }
+
+});
+</script>
 </body>
 </html>
